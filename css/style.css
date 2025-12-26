@@ -1,0 +1,155 @@
+body, html {
+  background-color: #000;
+  color: #fff;
+  margin: 0;
+  font-family: 'Jura', sans-serif;
+}
+
+/* LOGO */
+.navbar-brand {
+  font-family: 'Michroma', sans-serif; 
+  font-size: 1rem;
+  letter-spacing: 1.2em;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.navbar-brand:hover {
+  color: #ff0000;
+  cursor: pointer;
+}
+
+/* NAVBAR */
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.nav-link {
+  font-family: 'Jura', sans-serif; 
+  text-transform: uppercase;
+  letter-spacing: normal;
+  color: rgba(255,255,255,0.5);
+  font-size: 1.3rem;
+  transition: color 0.3s;
+  padding: 0 0.5rem;
+}
+
+.nav-link.active {
+  color: #fff !important; 
+}
+
+.nav-link:hover {
+  color: #fff;
+}
+
+.separator {
+  color: rgba(255,255,255,0.5);
+  padding: 0 0.5rem;
+}
+
+/* BOTÓN HAMBURGUESA BLANCO */
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255,255,255,1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+
+
+
+/* ------------ PÁGINA CONCIERTOS ------------ */
+
+/* TABLA */
+table {
+  border-collapse: collapse;
+}
+
+table th {
+  font-family: 'Jura', sans-serif;
+  font-weight: 700;
+}
+
+table td {
+  font-family: 'Jura', sans-serif;
+  font-weight: 400;
+}
+
+.section .w-100 {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.mb-4 {
+    margin-bottom: 4.5rem!important;
+}
+
+/* SECCIÓN CONCIERTOS CON IMAGEN DE FONDO */
+.conciertos-section {
+  position: relative;
+  background-image: url("../media/background_table.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* TEXTO PROXIMO TOUR 2026 */
+.display-4 {
+  font-size: 2rem;
+}
+
+/* TABLA TRANSPARENTE */
+.table-dark {
+  background-color: transparent; 
+  border: none; 
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Celdas: líneas blancas semitransparentes y texto */
+.table-dark th,
+.table-dark td {
+  background-color: transparent; 
+  color: rgba(255, 255, 255, 0.2); 
+  padding: 0.75rem 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2); /* líneas horizontales */
+  border-right: 1px solid rgba(255,255,255,0.2); /* líneas verticales */
+  transition: color 0.3s;
+}
+
+/* Última columna: quitar línea derecha */
+.table-dark th:last-child,
+.table-dark td:last-child {
+  border-right: none;
+}
+
+/* Primer fila thead: quitar borde superior externo */
+.table-dark thead tr:first-child th {
+  border-top: none;
+}
+
+/* Última fila tbody: quitar borde inferior externo */
+.table-dark tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Hover: iluminar solo el texto de la fila */
+.table-dark tbody tr:hover td {
+  color: #fff; 
+  cursor: pointer; 
+}
+
+/* ------------ RESPONSIVE ------------ */
+@media (max-width: 768px) {
+  .nav-link {
+    font-size: 0.85rem;
+    padding: 0.3rem;
+  }
+
+  .separator {
+    padding: 0 0.3rem;
+  }
+}
