@@ -6,6 +6,21 @@ body, html {
 }
 
 /* LOGO */
+
+/* CSS */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  transition: transform 0.3s ease;
+}
+
+.navbar-hidden {
+  transform: translateY(-100%); /* se oculta hacia arriba */
+}
+
 .navbar-brand {
   font-family: 'Michroma', sans-serif; 
   font-size: 1rem;
@@ -58,6 +73,119 @@ body, html {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255,255,255,1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
+/* FOOTER */
+.footer-section {
+  overflow: hidden;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Esto empuja el contenido hacia abajo */
+}
+
+.footer-bg {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30%;
+  opacity: 0.5; /* baja visibilidad */
+  pointer-events: none;
+  z-index: 1;
+}
+
+.footer-logo {
+  color: white;
+}
+
+/* Footer links hover */
+.footer-link.text-white:hover,
+.footer-links-row a.text-white:hover {
+  color: red !important;
+  text-decoration: none;
+}
+
+
+/* ------------ PÁGINA HOME ------------ */
+.hero-section {
+  width: 100%;
+  height: 100vh;
+  background: #000;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0; /* empezamos oculto */
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-logo {
+  width: 300px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Judeline Logos */
+.judeline-container {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 3;
+  opacity: 0; /* invisibles al inicio */
+}
+
+.judeline-logo {
+  font-family: 'Michroma', sans-serif;
+  color: red;
+  font-size: 9rem;
+  letter-spacing: 4rem;
+  margin: 0.5rem 0;
+}
+
+
+.home1-section {
+  height: 200vh; /* altura suficiente para scroll */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; 
+  position: relative;
+  background-color: #000; /* opcional */
+}
+
+.home1-container {
+  width: 100%;
+  height: 100%; /* <--- importante */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 8rem;
+}
+
+.home1-img {
+  width: 40%;
+  position: sticky;
+  top: 0;
+}
 
 
 
@@ -84,13 +212,14 @@ table td {
 }
 
 .mb-4 {
-    margin-bottom: 4.5rem!important;
+    margin-bottom: 2.5rem!important;
+    margin-top: 3rem;
 }
 
 /* SECCIÓN CONCIERTOS CON IMAGEN DE FONDO */
 .conciertos-section {
   position: relative;
-  background-image: url("../media/background_table.jpg");
+  background-image: url("../media/background_table.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -141,6 +270,362 @@ table td {
   color: #fff; 
   cursor: pointer; 
 }
+
+/* IMAGEN FLOTANTE EN HOVER */
+.hover-image {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 20;
+  transition: opacity 0.10s ease;
+}
+
+.hover-image img {
+  width: 250px;
+  height: auto;
+  object-fit: cover;
+}
+
+/* ------------ SECCIÓN BODHIRIA TOUR ------------ */
+
+.tour-section {
+  position: relative;
+  padding: 4rem 2rem 0; /* empieza justo debajo */
+  overflow: hidden;
+  height: 100vh;
+}
+
+.tour-title {
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  font-size: 11.5vw;
+  line-height: 1;
+  transform-origin: top center; /* CLAVE */
+  text-align: center;
+}
+
+.tour-images {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+}
+
+.tour-img {
+  position: absolute;
+  width: 13vw;
+  opacity: 0;
+  transform: scale(0.9);
+  cursor: grab;
+  pointer-events: auto;
+}
+
+.tour-img:active {
+  cursor: grabbing;
+}
+
+.tour-line {
+  position: absolute;
+  background-color: white;
+  pointer-events: none;
+}
+
+.tour-line.horizontal {
+  height: 1px;
+  width: 100%;
+  transform-origin: left center; /* dibuja desde la izquierda */
+  transform: scaleX(0);
+}
+
+.tour-line.vertical {
+  width: 1px;
+  height: 100%;
+  transform-origin: center top; /* dibuja desde arriba */
+  transform: scaleY(0);
+}
+
+
+
+
+/* ------------ PÁGINA MERCH ------------ */
+.drop-section {
+  position: relative;
+  height: auto; /* suficiente scroll para ver el efecto */
+}
+
+.drop-title {
+  position: fixed;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%) scaleY(1.3);
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  letter-spacing: -10px;
+  font-size: 19.5vw;
+  line-height: 1;
+  color: white;
+  z-index: 0; /* debajo de la tabla */
+  transform-origin: top center;
+  pointer-events: none;
+}
+
+.merch-table-wrapper {
+  position: relative;
+  z-index: 10; /* encima del drop */
+  padding-top: 40vh;
+}
+
+/* grid de productos */
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.product-card {
+  position: relative;
+  padding: 1rem;
+}
+
+.product-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-number {
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 3rem;
+  transform: scaleY(0.3);
+}
+
+.add-to-cart {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.product-image {
+  width: 100%;
+  height: auto;
+  margin: 1rem 0;
+}
+
+.product-footer {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Jura', sans-serif;
+  font-size: 1rem;
+  text-transform: uppercase;
+  
+}
+
+.divider {
+  height: 1px;
+  background: white;
+  margin-top: 1rem;
+}
+
+/* carrito */
+
+#cartItems li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.cart-quantity {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#cartOffcanvas {
+  z-index: 10000; /* mayor que el navbar */
+}
+
+
+#cartOffcanvas .list-group-item {
+  background-color: #000;  /* fondo negro de cada item */
+  color: #fff;             /* texto blanco */
+  border: 1px solid #333;  /* opcional: separador sutil */
+}
+
+.offcanvas-title {
+  text-transform: uppercase;
+}
+
+.gap-1 {
+  gap: 1rem !important;
+}
+
+
+/* NEWSLETTER */
+.newsletter-section {
+  position: relative;
+  background-color: #000; /* fondo negro */
+  overflow: hidden;
+  height: 40vh;
+
+}
+
+.newsletter-bg {
+  position: absolute;
+  top: 50%;
+  left: 70%;
+  width: 40vw;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.newsletter-input {
+  max-width: 400px;
+  width: 100%;
+  background: #111;
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 0.75rem 1rem;
+}
+
+.newsletter-input::placeholder {
+  color: #ccc;
+}
+
+.newsletter-btn {
+  padding: 0.75rem 2rem;
+  background: #fff;
+  color: #000;
+  border: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.newsletter-btn:hover {
+  background: #ccc;
+}
+
+.newsletter-red-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ff0000;
+  opacity: 0; /* empieza transparente */
+  pointer-events: none;
+  z-index: 1;
+  transition: opacity 0.3s;
+}
+
+
+/* ------------ PÁGINA DE MÚSICA ------------ */
+
+.music-section {
+  height: 100vh;
+  overflow: hidden;
+  padding-top: 3rem;
+}
+
+.carousel-container {
+  position: absolute;
+  width: 420px;
+  height: 300px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  perspective: 800px;
+}
+
+#ring {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.img {
+  position: absolute;
+  width: 440px;
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+  backface-visibility: hidden;
+}
+
+#dragger {
+  position: absolute;
+  inset: 0;
+  cursor: grab;
+  pointer-events: none; /* <--- esto permite que los links debajo sean interactivos */
+}
+
+
+#carousel-caption {
+  color: white;
+  font-family: 'Helvetica', sans-serif;
+  font-weight: 700;
+  font-size: 6rem;
+  transform: scaleY(0.4); 
+  letter-spacing: -0.05em; 
+  position: relative;   
+  top: 60%;             
+  text-align: center;
+  display: block;
+}
+
+.carousel-caption-link {
+  color: white;
+  font-family: 'Helvetica', sans-serif;
+  font-weight: 700;
+  font-stretch: condensed; /* achatado */
+  font-size: 5rem;
+  letter-spacing: -0.05em;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.carousel-caption-link:hover {
+  color: #e10600; /* rojo intenso al hover */
+}
+
+/* ===== CUSTOM CURSOR (MÚSICA) ===== */
+
+.music-section {
+  cursor: none;
+}
+
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #e10600; /* rojo intenso */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.15s ease-out;
+}
+
+.custom-cursor span {
+  color: #fff;
+  font-family: 'Michroma', sans-serif;
+  font-size: .5rem;
+  letter-spacing: 0.2em;
+}
+
+
+
 
 /* ------------ RESPONSIVE ------------ */
 @media (max-width: 768px) {

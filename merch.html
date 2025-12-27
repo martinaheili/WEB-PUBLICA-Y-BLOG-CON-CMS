@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Judeline | Merch</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Fonts: Michroma + Jura -->
+  <link href="https://fonts.googleapis.com/css2?family=Michroma&family=Jura:wght@400&display=swap" rel="stylesheet">  
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- NAV -->
+    <nav class="navbar navbar-expand-lg bg-black py-4">
+        <div class="container-fluid px-4 d-flex justify-content-between align-items-center">
+
+            <!-- LOGO -->
+            <a class="navbar-brand" href="index.html">JUDELINE</a>
+
+            <!-- BOTÓN HAMBURGUESA -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- MENU -->
+            <div class="collapse navbar-collapse" id="navbarMenu">
+            <ul class="navbar-nav ms-auto d-flex align-items-center">
+                <li class="nav-item">
+                <a class="nav-link menu-link" href="conciertos.html">CONCIERTOS</a>
+                </li>
+                <li class="nav-item separator">/</li>
+                <li class="nav-item">
+                <a class="nav-link menu-link" href="musica.html">MÚSICA</a>
+                </li>
+                <li class="nav-item separator">/</li>
+                <li class="nav-item">
+                <a class="nav-link menu-link active" href="merch.html">MERCH</a>
+                </li>
+                <li class="nav-item separator">/</li>
+                <li class="nav-item">
+                <a class="nav-link menu-link" href="blog.html">BLOG</a>
+                </li>
+            </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SECCIÓN DROP -->
+    <section class="section bg-black text-white py-5">
+        <div class="drop-section">
+        <h1 class="drop-title">DROP2025</h1>
+
+        <!-- Tabla merch -->
+        <div class="w-100 merch-table-wrapper">
+            <h2 class="display-4 mb-4 fw-bold px-4" style="font-family: 'Jura', sans-serif;">MERCHANDISING</h2>
+            <table class="table table-dark text-white mb-0">
+            <colgroup>
+                <col style="width: 100px;">
+                <col style="width: 250px;">
+                <col style="width: 200px;">
+                <col style="width: 300px;">
+                <col style="width: auto;">
+            </colgroup>
+            <thead>
+                <tr>
+                <th>NÚMERO</th>
+                <th>PRODUCTO</th>
+                <th>COLORES</th>
+                <th>EDICIÓN</th>
+                <th>PRECIO</th>
+                </tr>
+            </thead>
+            <!-- Imagen flotante para hover -->
+            <div class="hover-image" style="position: fixed; top:0; left:0; pointer-events:none; display:none; z-index:1000;">
+            <img src="" alt="" style="width:500px; height:auto; display:block;">
+            </div>
+
+            <!-- Tabla merch -->
+            <tbody>
+            <tr data-image="media/Producto3.png"><td>0001</td><td>Camiseta</td><td>Negro / Blanco</td><td>Niña del sur</td><td>€30</td></tr>
+            <tr data-image="media/Producto6.png"><td>0002</td><td>Camiseta</td><td>Negro / Blanco</td><td>Judeline D.B.C.A</td><td>€25</td></tr>
+            <tr data-image="media/Producto5.png"><td>0003</td><td>Camiseta</td><td>Negro / Blanco</td><td>Fuck, marry & kill</td><td>€25</td></tr>
+            <tr data-image="media/Producto8.png"><td>0004</td><td>Sudadera</td><td>Negro / Blanco</td><td>Judeline</td><td>€60</td></tr>
+            <tr data-image="media/Producto7.png"><td>0005</td><td>Sudadera</td><td>Negro / Blanco</td><td>Fuck, marry & kill</td><td>€55</td></tr>
+            <tr data-image="media/Producto1.png"><td>0006</td><td>Totebag</td><td>Negro</td><td>Niña del sur</td><td>€18</td></tr>
+            <tr data-image="media/Producto2.png"><td>0007</td><td>Bodhiria CD</td><td></td><td></td><td>€15</td></tr>
+            <tr data-image="media/Producto10.png"><td>0008</td><td>Bodhiria Vinilo</td><td></td><td></td><td>€20</td></tr>
+            <tr data-image="media/Producto11.png"><td>009</td><td>Bodhiria Vinilo</td><td>Blanco</td><td>Edición limitada</td><td>€25</td></tr>
+            </tbody>
+            </table>
+        </div>
+        </div>
+    </section>
+
+    <!-- NUEVA SECCIÓN GRID DE PRODUCTOS -->
+    <section class="section bg-black text-white py-5 products-section">
+    <div class="container-fluid px-4">
+        <h2 class="display-4 mb-4 fw-bold" style="font-family: 'Jura', sans-serif;">PRODUCTOS</h2>
+
+        <div class="products-grid">
+        <!-- Producto 1 -->
+        <div class="product-card">
+            <div class="product-header">
+            <span class="product-number">0001</span>
+            <button class="add-to-cart">🛒</button>
+            </div>
+            <img src="media/Producto3.png" alt="Camiseta" class="product-image">
+            <div class="product-footer">
+            <span class="product-name">Camiseta</span>
+            <span class="product-edition">Niña del sur</span>
+            <span class="product-price">€30</span>
+            </div>
+            <div class="divider"></div>
+        </div>
+
+        <!-- Producto 2 -->
+        <div class="product-card">
+            <div class="product-header">
+            <span class="product-number">0002</span>
+            <button class="add-to-cart">🛒</button>
+            </div>
+            <img src="media/Producto6.png" alt="Camiseta" class="product-image">
+            <div class="product-footer">
+            <span class="product-name">Camiseta</span>
+            <span class="product-edition">Judeline D.B.C.A</span>
+            <span class="product-price">€25</span>
+            </div>
+            <div class="divider"></div>
+        </div>
+
+        <!-- Producto 3 -->
+        <div class="product-card">
+            <div class="product-header">
+            <span class="product-number">0003</span>
+            <button class="add-to-cart">🛒</button>
+            </div>
+            <img src="media/Producto5.png" alt="Camiseta" class="product-image">
+            <div class="product-footer">
+            <span class="product-name">Camiseta</span>
+            <span class="product-edition">Fuck, marry & kill</span>
+            <span class="product-price">€25</span>
+            </div>
+            <div class="divider"></div>
+        </div>
+
+        <!-- Producto 4 -->
+        <div class="product-card">
+            <div class="product-header">
+            <span class="product-number">0004</span>
+            <button class="add-to-cart">🛒</button>
+            </div>
+            <img src="media/Producto8.png" alt="Sudadera" class="product-image">
+            <div class="product-footer">
+            <span class="product-name">Sudadera</span>
+            <span class="product-edition">Judeline</span>
+            <span class="product-price">€60</span>
+            </div>
+            <div class="divider"></div>
+        </div>
+
+        <!-- Producto 5 -->
+        <div class="product-card">
+            <div class="product-header">
+            <span class="product-number">0005</span>
+            <button class="add-to-cart">🛒</button>
+            </div>
+            <img src="media/Producto7.png" alt="Sudadera" class="product-image">
+            <div class="product-footer">
+            <span class="product-name">Sudadera</span>
+            <span class="product-edition">Fuck, marry & kill</span>
+            <span class="product-price">€55</span>
+            </div>
+            <div class="divider"></div>
+        </div>
+
+        <!-- Producto 6 -->
+        <div class="product-card">
+            <div class="product-header">
+            <span class="product-number">0006</span>
+            <button class="add-to-cart">🛒</button>
+            </div>
+            <img src="media/Producto1.png" alt="Totebag" class="product-image">
+            <div class="product-footer">
+            <span class="product-name">Totebag</span>
+            <span class="product-edition">Niña del sur</span>
+            <span class="product-price">€18</span>
+            </div>
+            <div class="divider"></div>
+        </div>
+
+        <!-- Producto 7 -->
+        <div class="product-card">
+            <div class="product-header">
+            <span class="product-number">0007</span>
+            <button class="add-to-cart">🛒</button>
+            </div>
+            <img src="media/Producto2.png" alt="Bodhiria CD" class="product-image">
+            <div class="product-footer">
+            <span class="product-name">Bodhiria CD</span>
+            <span class="product-edition">&nbsp;</span>
+            <span class="product-price">€15</span>
+            </div>
+            <div class="divider"></div>
+        </div>
+
+        <!-- Producto 8 -->
+        <div class="product-card">
+            <div class="product-header">
+            <span class="product-number">0008</span>
+            <button class="add-to-cart">🛒</button>
+            </div>
+            <img src="media/Producto10.png" alt="Bodhiria Vinilo" class="product-image">
+            <div class="product-footer">
+            <span class="product-name">Bodhiria Vinilo</span>
+            <span class="product-edition">&nbsp;</span>
+            <span class="product-price">€20</span>
+            </div>
+            <div class="divider"></div>
+        </div>
+
+        <!-- Producto 9 -->
+        <div class="product-card">
+            <div class="product-header">
+            <span class="product-number">0009</span>
+            <button class="add-to-cart">🛒</button>
+            </div>
+            <img src="media/Producto11.png" alt="Bodhiria Vinilo" class="product-image">
+            <div class="product-footer">
+            <span class="product-name">Bodhiria Vinilo</span>
+            <span class="product-edition">Edición limitada</span>
+            <span class="product-price">€25</span>
+            </div>
+            <div class="divider"></div>
+        </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- SECCIÓN NEWSLETTER -->
+    <section class="newsletter-section position-relative text-white py-5">
+      <!-- Overlay rojo -->
+    <div class="newsletter-red-overlay"></div>
+    <!-- Imagen de fondo -->
+    <img src="media/newsletter.png" alt="Newsletter Background" class="newsletter-bg">
+
+    <div class="container-fluid px-4 position-relative" style="z-index: 2;">
+        <h2 class="fw-bold display-5 mb-3">Suscríbete y no te pierdas nada</h2>
+        <p class="mb-4">Recibe las últimas novedades de Judeline directamente en tu correo.</p>
+
+        <form class="d-flex justify-content-start flex-column flex-sm-row align-items-center gap-2">
+            <input type="email" class="form-control newsletter-input" placeholder="Introduce tu email">
+            <button type="submit" class="btn btn-primary newsletter-btn">Enviar</button>
+        </form>
+    </div>
+    </section>
+
+ <!-- FOOTER -->
+<footer class="footer-section position-relative bg-black text-white pt-5 pb-4">
+
+  <!-- Imagen de fondo -->
+  <img src="media/footer.png" alt="Footer Background" class="footer-bg">
+
+  <!-- Logo grande -->
+  <div class="container-fluid text-center position-relative" style="z-index:2;">
+      <h1 class="footer-logo display-1 fw-bold mb-5" style="font-family: 'Michroma', sans-serif; letter-spacing: 1.2em;">
+      JUDELINE
+      </h1>
+
+      <!-- Filas de columnas -->
+      <div class="row text-center text-md-start justify-content-center align-items-end footer-links-row">
+        <div class="col-6 col-md-3 mb-3 mb-md-0 text-center">
+        <a href="javascript:void(0);" class="footer-link text-white text-decoration-none">Política de Reembolso</a>
+        </div>
+
+        <div class="col-6 col-md-3 mb-3 mb-md-0 text-center">
+        <a href="javascript:void(0);" class="footer-link text-white text-decoration-none">Política de Privacidad</a>
+        </div>
+
+        <div class="col-6 col-md-3 mb-3 mb-md-0 text-center">
+        <a href="javascript:void(0);" class="footer-link text-white text-decoration-none">Aviso Legal</a>
+        </div>
+
+        <div class="col-6 col-md-3 mb-3 mb-md-0 d-flex justify-content-center gap-3">
+          <a href="javascript:void(0);" class="text-white"><i class="fab fa-instagram fa-lg"></i></a>
+          <a href="javascript:void(0);" class="text-white"><i class="fas fa-envelope fa-lg"></i></a>
+          <a href="javascript:void(0);" class="text-white"><i class="fab fa-tiktok fa-lg"></i></a>
+          <a href="javascript:void(0);" class="text-white"><i class="fab fa-twitter fa-lg"></i></a>
+        </div>
+      </div>
+  </div>
+</footer>
+<!-- Offcanvas Carrito -->
+<div class="offcanvas offcanvas-end bg-black text-white" tabindex="-1" id="cartOffcanvas" aria-labelledby="cartOffcanvasLabel" style="width: 40vw;">
+  <div class="offcanvas-header">
+    <h2 class="offcanvas-title" id="cartOffcanvasLabel">Mi Carrito</h2>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <ul class="list-group list-group-flush" id="cartItems"></ul>
+    <div class="d-flex justify-content-between mt-3">
+      <strong>Total:</strong>
+      <span id="cartTotal">€0</span>
+    </div>
+    <button class="btn btn-light w-100 mt-3 text-black">Checkout</button>
+  </div>
+</div>
+
+  <!-- JS Bootstrap + jQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/Draggable.min.js"></script>
+  <script src="js/merch.js"></script>
+
+</body>
+</html>
