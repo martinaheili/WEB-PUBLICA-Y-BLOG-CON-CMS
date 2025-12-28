@@ -100,3 +100,25 @@ links.forEach(link => {
     cursor.style.backgroundColor = "rgba(255,255,255,1)";
   });
 });
+
+
+
+
+// Audio
+const audio = document.getElementById('background-audio');
+const toggleBtn = document.getElementById('audio-toggle');
+
+// Inicializar estado
+let isPlaying = !audio.paused; // true si el audio ya estaba sonando
+toggleBtn.textContent = isPlaying ? "SOUND ON" : "SOUND OFF";
+
+// Toggle al click
+toggleBtn.addEventListener('click', () => {
+  if (!isPlaying) {
+    audio.play();
+  } else {
+    audio.pause();
+  }
+  isPlaying = !isPlaying;
+  toggleBtn.textContent = isPlaying ? "SOUND ON" : "SOUND OFF";
+});

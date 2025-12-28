@@ -258,7 +258,7 @@ body, html {
   line-height: 1;
   margin: 0;
   text-align: left;
-  letter-spacing: -.2rem;
+  letter-spacing: -.2vw;
 }
 
 .left-text p {
@@ -271,7 +271,7 @@ body, html {
   text-align: left;
   width: 40%;
   margin-left: 1.5rem;
-  letter-spacing: -.2rem;
+  letter-spacing: -.2vw;
 }
 
 /* ---------- HOME 2 ---------- */
@@ -301,7 +301,7 @@ body, html {
   font-family: Helvetica, Arial, sans-serif;
   font-weight: 700;
   font-size: 3vw;
-  letter-spacing: -.2rem;
+  letter-spacing: -.2vw;
   line-height: 1;
   color: rgb(255, 0, 0);
   opacity: 0; /* empiezan invisibles */
