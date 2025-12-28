@@ -62,24 +62,45 @@ gsap.to(navbar, {
   }
 });
 
-// cursor personalizado
+// Seleccionamos el cursor
 const cursor = document.querySelector(".custom-cursor-oficial");
 
+// Variables para mouse
+let mouse = { x: 0, y: 0 };
+let pos = { x: 0, y: 0 };
+
+// Detectamos movimiento del mouse
 document.addEventListener("mousemove", e => {
-  cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+  mouse.x = e.clientX;
+  mouse.y = e.clientY;
 });
 
-const links = document.querySelectorAll("a, button");
+// Animación del cursor
+function animateCursor() {
+  // Suavizado con GSAP
+  gsap.to(pos, {
+    x: mouse.x,
+    y: mouse.y,
+    duration: 0.12,
+    ease: "power1.out",
+    onUpdate: () => {
+      // Si usas ScrollSmoother / Locomotive Scroll, sumar scroll offset aquí
+      // const scrollTop = document.querySelector("[data-scroll-container]")?.scrollTop || 0;
+      cursor.style.transform = `translate(${pos.x}px, ${pos.y}px)`;
+    }
+  });
 
+  requestAnimationFrame(animateCursor);
+}
+animateCursor();
+
+// Hover sobre links y botones
+const links = document.querySelectorAll("a, button");
 links.forEach(link => {
   link.addEventListener("mouseenter", () => {
-    cursor.style.width = "35px";
-    cursor.style.height = "35px";
-    cursor.style.backgroundColor = "rgba(255,0,0,0.6)"; // rojo semitransparente
+    gsap.to(cursor, { width: 35, height: 35, backgroundColor: "rgba(255,0,0,0.6)", duration: 0.2 });
   });
   link.addEventListener("mouseleave", () => {
-    cursor.style.width = "20px";
-    cursor.style.height = "20px";
-    cursor.style.backgroundColor = "rgba(255, 255, 255, 1)";
+    gsap.to(cursor, { width: 20, height: 20, backgroundColor: "rgba(255,255,255,1)", duration: 0.2 });
   });
 });
