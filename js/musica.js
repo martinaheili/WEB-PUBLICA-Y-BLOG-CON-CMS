@@ -75,11 +75,28 @@ window.addEventListener("wheel", (e) => {
 // Inicializar caption
 updateCaptions(rotationY);
 
-// Custom cursor
-const cursor = document.querySelector('.custom-cursor');
+// cursor personalizado
+const cursor = document.querySelector(".custom-cursor-oficial");
 
-window.addEventListener('mousemove', (e) => {
-  cursor.style.top = `${e.clientY}px`;
-  cursor.style.left = `${e.clientX}px`;
+document.addEventListener("mousemove", e => {
+  cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
 });
+
+const links = document.querySelectorAll("a, button");
+
+links.forEach(link => {
+  link.addEventListener("mouseenter", () => {
+    cursor.style.width = "35px";
+    cursor.style.height = "35px";
+    cursor.style.backgroundColor = "rgba(255,0,0,0.6)"; // rojo semitransparente
+  });
+  link.addEventListener("mouseleave", () => {
+    cursor.style.width = "20px";
+    cursor.style.height = "20px";
+    cursor.style.backgroundColor = "rgba(255, 255, 255, 1)";
+  });
+});
+
+
+
 

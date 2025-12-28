@@ -68,7 +68,47 @@ ScrollSmoother.create({
 ScrollTrigger.create({
   trigger: ".home1-section",
   start: "top top",
-  end: "bottom top",
-  pin: true,       // hace que la sección se quede fija
+  end: "+=200%",
+  pin: true,
   pinSpacing: false
 });
+
+
+
+gsap.fromTo(
+  ".reveal-text",
+  {
+    yPercent: -50
+  },
+  {
+    yPercent: -120, // sube el texto
+    scrollTrigger: {
+      trigger: ".home1-section",
+      start: "center center", // justo cuando empieza la imagen sticky
+      end: "bottom top",
+      scrub: true
+    }
+  }
+);
+
+// Máscara: se abre desde la mitad de pantalla hacia abajo
+gsap.fromTo(
+  ".reveal-mask",
+  {
+    clipPath: "inset(0 0 100% 0)"
+  },
+  {
+    clipPath: "inset(0 0 0% 0)",
+    scrollTrigger: {
+      trigger: ".home1-section",
+      start: "center center",
+      end: "bottom top",
+      scrub: true
+    }
+  }
+);
+
+
+
+
+

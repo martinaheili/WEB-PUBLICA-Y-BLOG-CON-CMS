@@ -3,6 +3,7 @@ body, html {
   color: #fff;
   margin: 0;
   font-family: 'Jura', sans-serif;
+  cursor: none;
 }
 
 /* LOGO */
@@ -80,6 +81,18 @@ body, html {
   display: flex;
   flex-direction: column;
   justify-content: flex-end; /* Esto empuja el contenido hacia abajo */
+  align-items: center;
+}
+
+.footer2-section {
+  overflow: hidden;
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Esto empuja el contenido hacia abajo */
+  align-items: center;
+  background-color: red;
+  color: black;
 }
 
 .footer-bg {
@@ -97,12 +110,33 @@ body, html {
   color: white;
 }
 
+.footer-logo2 {
+  color: black;
+}
+
 /* Footer links hover */
 .footer-link.text-white:hover,
 .footer-links-row a.text-white:hover {
   color: red !important;
   text-decoration: none;
 }
+
+
+.custom-cursor-oficial {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;          
+  height: 20px;
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+  pointer-events: none;   
+  transform: translate(-50%, -50%);
+  z-index: 10001;
+  transition: transform 0.1s ease-out, width 0.2s ease, height 0.2s ease;
+}
+
+
 
 
 /* ------------ PÁGINA HOME ------------ */
@@ -145,7 +179,7 @@ body, html {
 .judeline-container {
   position: absolute;
   top: 10%;
-  left: 50%;
+  left: 51%;
   transform: translateX(-50%);
   display: flex;
   flex-direction: column;
@@ -157,36 +191,131 @@ body, html {
 .judeline-logo {
   font-family: 'Michroma', sans-serif;
   color: red;
-  font-size: 9rem;
+  font-size: 8vw;
   letter-spacing: 4rem;
   margin: 0.5rem 0;
 }
 
 
 .home1-section {
-  height: 200vh; /* altura suficiente para scroll */
-  display: flex;
-  justify-content: center;
-  align-items: flex-start; 
   position: relative;
-  background-color: #000; /* opcional */
+  height: 300vh;
+  background: #000;
 }
 
 .home1-container {
+  position: relative;
   width: 100%;
-  height: 100%; /* <--- importante */
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: flex-start;
   padding-top: 8rem;
+  z-index: 1;
 }
 
 .home1-img {
-  width: 40%;
+  width: 35%;
   position: sticky;
   top: 0;
 }
 
+
+/* ---------- TEXTO REVELADO ---------- */
+
+.reveal-text-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 220vh;
+  pointer-events: none; /* no interfiere con scroll */
+  z-index: 2;
+}
+
+.reveal-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 85%;
+  height: 100%;
+  overflow: hidden; /* CLAVE */
+}
+
+.reveal-text {
+  position: absolute;
+  top: 50%;
+  left: 59%;
+  transform: translate(-50%, 0%);
+  text-align: center;
+}
+
+.reveal-text p {
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  color: red;
+  font-size: 3vw;
+  line-height: 1;
+  margin: 0;
+  text-align: left;
+  letter-spacing: -.2rem;
+}
+
+.left-text p {
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  color: red;
+  font-size: 3vw;
+  line-height: 1;
+  margin: 0;
+  text-align: left;
+  width: 40%;
+  margin-left: 1.5rem;
+  letter-spacing: -.2rem;
+}
+
+/* ---------- HOME 2 ---------- */
+.home2-swipe {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.home2-panel {
+  background-color: rgb(0, 0, 0);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.home2-panel img {
+  height: 70%;
+}
+
+.home2-text {
+  position: absolute;
+  top: 74%;
+  transform: translateY(-50%);
+  width: 35%;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  font-size: 3vw;
+  letter-spacing: -.2rem;
+  line-height: 1;
+  color: rgb(255, 0, 0);
+  opacity: 0; /* empiezan invisibles */
+}
+
+.home2-text.left {
+  left: -19.5%; /* fuera de pantalla izquierda */
+  text-align: left;
+}
+
+.home2-text.right {
+  right: -19.5%; /* fuera de pantalla derecha */
+  text-align: right;
+}
 
 
 /* ------------ PÁGINA CONCIERTOS ------------ */
@@ -599,31 +728,6 @@ table td {
 .music-section {
   cursor: none;
 }
-
-.custom-cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: #e10600; /* rojo intenso */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: transform 0.15s ease-out;
-}
-
-.custom-cursor span {
-  color: #fff;
-  font-family: 'Michroma', sans-serif;
-  font-size: .5rem;
-  letter-spacing: 0.2em;
-}
-
 
 
 

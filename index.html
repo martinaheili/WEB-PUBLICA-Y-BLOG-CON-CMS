@@ -14,12 +14,50 @@
   <!-- Locomotive Scroll CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.2.2/dist/locomotive-scroll.css">
 
+<!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 <div data-scroll-container>
+    <!-- NAV -->
+    <nav class="navbar navbar-expand-lg bg-black py-4">
+        <div class="container-fluid px-4 d-flex justify-content-between align-items-center">
+
+            <!-- LOGO -->
+            <a class="navbar-brand" href="index.html">JUDELINE</a>
+
+            <!-- BOTÓN HAMBURGUESA -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- MENU -->
+            <div class="collapse navbar-collapse" id="navbarMenu">
+            <ul class="navbar-nav ms-auto d-flex align-items-center">
+                <li class="nav-item">
+                <a class="nav-link menu-link" href="conciertos.html">CONCIERTOS</a>
+                </li>
+                <li class="nav-item separator">/</li>
+                <li class="nav-item">
+                <a class="nav-link menu-link" href="musica.html">MÚSICA</a>
+                </li>
+                <li class="nav-item separator">/</li>
+                <li class="nav-item">
+                <a class="nav-link menu-link" href="merch.html">MERCH</a>
+                </li>
+                <li class="nav-item separator">/</li>
+                <li class="nav-item">
+                <a class="nav-link menu-link" href="blog.html">BLOG</a>
+                </li>
+            </ul>
+            </div>
+        </div>
+    </nav>
+
     <!-- Hero / Video -->
     <section class="hero-section" data-scroll-section>
         <div class="hero-container">
@@ -38,8 +76,92 @@
     <div class="home1-container">
         <img src="media/home1.png" class="home1-img" alt="Home 1">
     </div>
+    <div class="reveal-text-wrapper">
+        <div class="reveal-mask">
+            <div class="reveal-text">
+            <p>TRADICION DEL PRESENTE</p>
+            <p>TRADICION DEL PRESENTE</p>
+            <p>TRADICION DEL PRESENTE</p>
+            <p>TRADICION DEL PRESENTE</p>
+            <br> <br> <br> <br> <br>
+            <p>Lara Fernández habita el cruce entre tradición y futuro.Desde el sur, su música estira los límites del pop mezclando herencias territoriales.</p>
+            </div>
+        </div>
+    </div>
+    <div class="left-text">
+            <p>ESTA WEB NO ES<br>UNA BIOGRAFÍA.<br>ES UN UMBRAL.<br>
+            UN ESPACIO DONDE LA VOZ SE VUELVE IMAGEN<br>Y LA TRADICIÓN SE ESTIRA HASTA TOCAR<br>EL FUTURO.<br>JUDLINE NO SE EXPLICA:<br>APARECE.<br>
+            AQUÍ LA MÚSICA NO SE LEE. SE ATRAVIESA.</p>
+            </div>
     </section>
 
+    <!-- Home2 Section -->
+    <section class="home2-swipe">
+        <div class="home2-panel">
+            <img src="media/home2.png" alt="Home 2">
+        </div>
+
+        <!-- Texto izquierda -->
+        <div class="home2-text left">
+            <p>
+            Ama a todo el que te ame<br>
+            Y que se cumpla<br>el plan De Dios<br>
+            Yo saco la escopeta<br>yo le apunto al esternón<br>
+            Y a los ojos le miro<br>
+            Fría y sin compasión<br>
+            Nada yo aquí decido solo sigo el plan De Dios, y
+            </p>
+        </div>
+
+        <!-- Texto derecha -->
+        <div class="home2-text right">
+            <p>
+            Heli heli heli ya<br>
+            Ponme un anillo habibi<br>
+            Que yo me quiero casar<br>
+            Bendecida por el INRI<br>
+            Heli heli heli ya<br>
+            Ponme un anillo habibi<br>
+            Que yo me quiero casar<br>
+            Bendecida por el INRI
+            </p>
+        </div>
+    </section>
+
+     <!-- FOOTER -->
+<footer class="footer2-section position-relative pt-4 pb-4">
+
+  <!-- Logo grande -->
+  <div class="container-fluid text-center position-relative" style="z-index:2;">
+      <h1 class="footer-logo2 display-1 fw-bold mb-5" style="font-family: 'Michroma', sans-serif; letter-spacing: 1.2em; font-size: 5vw;">
+      JUDELINE
+      </h1>
+
+      <!-- Filas de columnas -->
+      <div class="row text-center text-md-start justify-content-center align-items-end footer-links-row">
+        <div class="col-6 col-md-3 mb-3 mb-md-0 text-center">
+        <a href="javascript:void(0);" class="footer-link text-black text-decoration-none">Política de Reembolso</a>
+        </div>
+
+        <div class="col-6 col-md-3 mb-3 mb-md-0 text-center">
+        <a href="javascript:void(0);" class="footer-link text-black text-decoration-none">Política de Privacidad</a>
+        </div>
+
+        <div class="col-6 col-md-3 mb-3 mb-md-0 text-center">
+        <a href="javascript:void(0);" class="footer-link text-black text-decoration-none">Aviso Legal</a>
+        </div>
+
+        <div class="col-6 col-md-3 mb-3 mb-md-0 d-flex justify-content-center gap-3">
+          <a href="javascript:void(0);" class="text-black"><i class="fab fa-instagram fa-lg"></i></a>
+          <a href="javascript:void(0);" class="text-black"><i class="fas fa-envelope fa-lg"></i></a>
+          <a href="javascript:void(0);" class="text-black"><i class="fab fa-tiktok fa-lg"></i></a>
+          <a href="javascript:void(0);" class="text-black"><i class="fab fa-twitter fa-lg"></i></a>
+        </div>
+      </div>
+  </div>
+</footer>
+
+<div class="custom-cursor-oficial"></div>
 <!-- JS -->
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -47,6 +169,7 @@
 <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.2.2/dist/locomotive-scroll.min.js"></script>
 <script src="js/index.js"></script>
+<script src="js/scrollhorizontal.js"></script>
 
 </body>
 </html>

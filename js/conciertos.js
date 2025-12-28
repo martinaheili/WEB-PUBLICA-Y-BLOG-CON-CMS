@@ -1,3 +1,25 @@
+// cursor personalizado
+const cursor = document.querySelector(".custom-cursor-oficial");
+
+document.addEventListener("mousemove", e => {
+  cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+});
+
+const links = document.querySelectorAll("a, button");
+
+links.forEach(link => {
+  link.addEventListener("mouseenter", () => {
+    cursor.style.width = "35px";
+    cursor.style.height = "35px";
+    cursor.style.backgroundColor = "rgba(255,0,0,0.6)"; // rojo semitransparente
+  });
+  link.addEventListener("mouseleave", () => {
+    cursor.style.width = "20px";
+    cursor.style.height = "20px";
+    cursor.style.backgroundColor = "rgba(255, 255, 255, 1)";
+  });
+});
+
 /* ------------ PÁGINA CONCIERTOS ------------ */
 let lastScroll = 0;
 const navbar = document.querySelector('.navbar');
