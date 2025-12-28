@@ -78,22 +78,40 @@ updateCaptions(rotationY);
 // cursor personalizado
 const cursor = document.querySelector(".custom-cursor-oficial");
 
+let mouse = { x: 0, y: 0 };
+let pos = { x: 0, y: 0 };
+const speed = 0.15; // cuanto más bajo, más suave
+
 document.addEventListener("mousemove", e => {
-  cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+  mouse.x = e.clientX;
+  mouse.y = e.clientY;
 });
 
+function animate() {
+  // Suavizado tipo “lerp”
+  pos.x += (mouse.x - pos.x) * speed;
+  pos.y += (mouse.y - pos.y) * speed;
+
+  cursor.style.transform = `translate(${pos.x}px, ${pos.y}px)`;
+
+  requestAnimationFrame(animate);
+}
+
+animate();
+
+// Hover sobre links
 const links = document.querySelectorAll("a, button");
 
 links.forEach(link => {
   link.addEventListener("mouseenter", () => {
     cursor.style.width = "35px";
     cursor.style.height = "35px";
-    cursor.style.backgroundColor = "rgba(255,0,0,0.6)"; // rojo semitransparente
+    cursor.style.backgroundColor = "rgba(255,0,0,0.6)";
   });
   link.addEventListener("mouseleave", () => {
     cursor.style.width = "20px";
     cursor.style.height = "20px";
-    cursor.style.backgroundColor = "rgba(255, 255, 255, 1)";
+    cursor.style.backgroundColor = "rgba(255,255,255,1)";
   });
 });
 
