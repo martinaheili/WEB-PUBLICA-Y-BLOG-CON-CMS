@@ -937,114 +937,166 @@ table td {
 }
 /* RESPONSIVE MERCH */
 /* =========================================
-   MERCH - DROP responsive (MÓVIL + TABLET)
-   Pegar al FINAL del style.css
+   MERCH (DROP TABLE) RESPONSIVE
+   Copia del patrón CONCIERTOS
    ========================================= */
 
-.merch-table-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-.merch-table-wrapper table { width: 100%; border-collapse: collapse; }
+/* tablet + móvil (<= 991.98px) */
 
-/* -------- TABLET (iPad) -------- */
-@media (min-width: 768px) and (max-width: 991.98px){
 
-  /* Reduce tamaño y baja DROP2025 para que no quede tan lejos */
-  .drop-title{
-    top: 10% !important;
-    font-size: 14vw !important;
-    letter-spacing: -7px !important;
-    transform: translateX(-50%) scaleY(1.15) !important;
-  }
-
-  /* Quita hueco negro: antes era 40vh */
-  .merch-table-wrapper{
-    padding-top: 24vh !important;
-  }
-
-  /* Tabla más compacta */
-  .merch-table-wrapper .display-4{
-    font-size: 1.35rem !important;
-    margin-bottom: 1.2rem !important;
-  }
-
-  .merch-table-wrapper .table-dark th,
-  .merch-table-wrapper .table-dark td{
-    font-size: .88rem !important;
-    padding: .55rem .75rem !important;
-    line-height: 1.1 !important;
-  }
-
-  /* Sobrescribe colgroup inline (5 columnas) */
-  .merch-table-wrapper colgroup col:nth-child(1){ width: 80px !important; }
-  .merch-table-wrapper colgroup col:nth-child(2){ width: 190px !important; }
-  .merch-table-wrapper colgroup col:nth-child(3){ width: 150px !important; }
-  .merch-table-wrapper colgroup col:nth-child(4){ width: 210px !important; }
-  .merch-table-wrapper colgroup col:nth-child(5){ width: auto !important; }
-
-  /* Imagen flotante un poco más contenida */
-  .drop-section .hover-image img{
-    width: min(34vw, 320px) !important;
-    height: auto !important;
+@media (max-width: 991.98px){
+    .drop-section .merch-table-wrapper{
+    padding-top: 11vh !important;   /* antes 26vh/40vh */
   }
 }
 
+@media (min-width: 768px) and (max-width: 991.98px){
 
-/* -------- MÓVIL -------- */
-@media (max-width: 575.98px){
-
-  /* DROP2025 más pequeño y más cerca de la tabla */
-  .drop-title{
-    top: 12% !important;
-    font-size: 16vw !important;
-    letter-spacing: -5px !important;
+  /* Menos hueco negro entre DROP2025 y tabla */
+ 
+  /* Título DROP2025 más controlado y un poco más abajo */
+  .drop-section .drop-title{
+    top: 8% !important;
+    font-size: 13vw !important;
+    letter-spacing: -8px !important;
     transform: translateX(-50%) scaleY(1.12) !important;
   }
 
-  /* Quita hueco negro enorme */
-  .merch-table-wrapper{
-    padding-top: 20vh !important;
+  /* Tabla compacta tablet (mantén si ya te gusta) */
+  .drop-section .merch-table-wrapper colgroup col:nth-child(1){ width: 90px !important; }
+  .drop-section .merch-table-wrapper colgroup col:nth-child(2){ width: 200px !important; }
+  .drop-section .merch-table-wrapper colgroup col:nth-child(3){ width: 160px !important; }
+  .drop-section .merch-table-wrapper colgroup col:nth-child(4){ width: 240px !important; }
+  .drop-section .merch-table-wrapper colgroup col:nth-child(5){ width: auto !important; }
+
+  /* Contención */
+  .drop-section{ position: relative; overflow: hidden; }
+
+  /* Hover image: MISMA COLUMNA (X fijo) */
+  .drop-section .hover-image{
+    position: absolute !important;     /* pisa inline fixed */
+    display: block !important;         /* pisa inline display:none */
+    left: 18px !important;
+    right: auto !important;
+    transform: none !important;
+    z-index: 1000 !important;
+
+    /* default si no hay hover */
+    top: 20% !important;
   }
 
+  .drop-section .hover-image img{
+    width: min(28vw, 260px) !important;   /* un pelín más pequeña */
+    height: auto !important;
+    display: block;
+  }
+
+  /* ✅ IGUAL QUE MÓVIL: MOVER ALTURA SEGÚN FILA (CSS-only con :has) */
+  .drop-section:has(.merch-table-wrapper tbody tr:nth-child(1):hover) .hover-image{ top: 24% !important; }
+  .drop-section:has(.merch-table-wrapper tbody tr:nth-child(2):hover) .hover-image{ top: 29% !important; }
+  .drop-section:has(.merch-table-wrapper tbody tr:nth-child(3):hover) .hover-image{ top: 34% !important; }
+  .drop-section:has(.merch-table-wrapper tbody tr:nth-child(4):hover) .hover-image{ top: 39% !important; }
+  .drop-section:has(.merch-table-wrapper tbody tr:nth-child(5):hover) .hover-image{ top: 44% !important; }
+  .drop-section:has(.merch-table-wrapper tbody tr:nth-child(6):hover) .hover-image{ top: 49% !important; }
+  .drop-section:has(.merch-table-wrapper tbody tr:nth-child(7):hover) .hover-image{ top: 54% !important; }
+  .drop-section:has(.merch-table-wrapper tbody tr:nth-child(8):hover) .hover-image{ top: 59% !important; }
+  .drop-section:has(.merch-table-wrapper tbody tr:nth-child(9):hover) .hover-image{ top: 64% !important; }
+}
+
+
+
+/* móvil (<= 575.98px) */
+@media (max-width: 575.98px){
+
+   .drop-section .merch-table-wrapper{
+    padding-top: 11vh !important;   /* antes 26vh/40vh */
+  }
   /* Título MERCHANDISING más pequeño */
-  .merch-table-wrapper .display-4{
+  .drop-section .display-4{
     font-size: 1.05rem !important;
     margin-bottom: 1rem !important;
   }
 
-  /* Tabla: tipografía más pequeña */
-  .merch-table-wrapper .table-dark th,
-  .merch-table-wrapper .table-dark td{
-    font-size: .66rem !important;
-    padding: .34rem .42rem !important;
+  /* Tabla más pequeña */
+  .drop-section .table-dark th,
+  .drop-section .table-dark td{
+    font-size: .68rem !important;
+    padding: .34rem .45rem !important;
     line-height: 1.05 !important;
   }
 
-  /* Sobrescribe colgroup inline para móvil */
-  .merch-table-wrapper colgroup col:nth-child(1){ width: 65px !important; }
-  .merch-table-wrapper colgroup col:nth-child(2){ width: 115px !important; }
-  .merch-table-wrapper colgroup col:nth-child(3){ width: 95px !important; }
-  .merch-table-wrapper colgroup col:nth-child(4){ width: 130px !important; }
-  .merch-table-wrapper colgroup col:nth-child(5){ width: 70px !important; }
+  /* Columnas más compactas (5 cols) */
+  .drop-section .merch-table-wrapper colgroup col:nth-child(1){ width: 70px !important; }
+  .drop-section .merch-table-wrapper colgroup col:nth-child(2){ width: 120px !important; }
+  .drop-section .merch-table-wrapper colgroup col:nth-child(3){ width: 105px !important; }
+  .drop-section .merch-table-wrapper colgroup col:nth-child(4){ width: 140px !important; }
+  .drop-section .merch-table-wrapper colgroup col:nth-child(5){ width: auto !important; }
 
-  /* Wrap en columnas largas */
-  .merch-table-wrapper .table-dark td:nth-child(2),
-  .merch-table-wrapper .table-dark td:nth-child(3),
-  .merch-table-wrapper .table-dark td:nth-child(4){
+  /* Wrap para que no empuje */
+  .drop-section .table-dark td:nth-child(2),
+  .drop-section .table-dark td:nth-child(3),
+  .drop-section .table-dark td:nth-child(4),
+  .drop-section .table-dark th:nth-child(2),
+  .drop-section .table-dark th:nth-child(3),
+  .drop-section .table-dark th:nth-child(4){
     white-space: normal !important;
     word-break: break-word !important;
   }
 
-  /* Número y precio en una línea */
-  .merch-table-wrapper .table-dark td:nth-child(1),
-  .merch-table-wrapper .table-dark td:nth-child(5){
-    white-space: nowrap !important;
+  /* Menos hueco negro móvil */
+  .drop-section .merch-table-wrapper{
+    padding-top: 20vh !important;
   }
 
-  /* La imagen flotante más pequeña en móvil */
+  /* DROP2025 menos grande y más abajo */
+  .drop-section .drop-title{
+    top: 12% !important;
+    font-size: 16vw !important;
+    letter-spacing: -6px !important;
+    transform: translateX(-50%) scaleY(1.12) !important;
+  }
+
+  /* Hover image: misma “columna” (X fijo) */
+  .drop-section{ position: relative; overflow: hidden; }
+
+  .drop-section .hover-image{
+    position: absolute !important;
+    display: block !important;
+    left: 10px !important;
+    right: 10px !important;
+    transform: none !important;
+    z-index: 1000 !important;
+
+    /* default */
+    top: 18% !important;
+  }
+
   .drop-section .hover-image img{
-    width: min(55vw, 220px) !important;
+    width: auto !important;
+    max-width: 30vw !important;
     height: auto !important;
+    display: block;
+  }
+
+  /* ✅ MOVER EN ALTURA SEGÚN FILA (CSS-only con :has) */
+  /* Tus filas en DROP son 9 -> mapeo 1..9 */
+  .drop-section:has(.merch-table-wrapper tbody tr:nth-child(1):hover) .hover-image{ top: 26% !important; }
+  .drop-section:has(.merch-table-wrapper tbody tr:nth-child(2):hover) .hover-image{ top: 31% !important; }
+  .drop-section:has(.merch-table-wrapper tbody tr:nth-child(3):hover) .hover-image{ top: 36% !important; }
+  .drop-section:has(.merch-table-wrapper tbody tr:nth-child(4):hover) .hover-image{ top: 41% !important; }
+  .drop-section:has(.merch-table-wrapper tbody tr:nth-child(5):hover) .hover-image{ top: 46% !important; }
+  .drop-section:has(.merch-table-wrapper tbody tr:nth-child(6):hover) .hover-image{ top: 51% !important; }
+  .drop-section:has(.merch-table-wrapper tbody tr:nth-child(7):hover) .hover-image{ top: 56% !important; }
+  .drop-section:has(.merch-table-wrapper tbody tr:nth-child(8):hover) .hover-image{ top: 61% !important; }
+  .drop-section:has(.merch-table-wrapper tbody tr:nth-child(9):hover) .hover-image{ top: 66% !important; }
+
+  .products-grid{
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
   }
 }
+
+
 
 
 /* ------------ PÁGINA DE MÚSICA ------------ */
