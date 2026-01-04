@@ -192,6 +192,7 @@ body, html {
   font-family: 'Michroma', sans-serif;
   color: red;
   font-size: 8vw;
+  font-weight: 700;
   letter-spacing: 4rem;
   margin: 0.5rem 0;
 }
@@ -317,6 +318,150 @@ body, html {
   text-align: right;
 }
 
+/* CSS HOME  */
+
+/* =========================================
+   RESPONSIVE OVERRIDES (sin tocar tu CSS)
+   Móvil + iPad/Tablet
+   ========================================= */
+
+/* Evita scroll horizontal por letter-spacing/posiciones absolutas */
+
+/* -------- TABLET / iPad (<= 992px) -------- */
+
+@media (max-width: 991.98px){
+.judeline-logo{
+     font-size: 4vw;
+    font-weight:bold;
+    letter-spacing: 2rem;
+    margin: 3rem 0;
+  }
+  .hero-logo{
+    width: clamp(150px, 42vw, 230px);
+  }
+.home1-section {
+   height: 234vh;
+  position: relative;
+  
+  background: #000;
+}
+
+.home1-img {
+  width: 55%;
+}
+
+.reveal-mask {
+  width: 100%;
+  height: 100%;
+}
+
+.reveal-text {
+  top: 30%;
+  left: 49%;
+}
+.reveal-text p {
+  font-size: 9vw;
+}
+
+.left-text p {
+  font-size: 7vw;
+  width: 70%;
+}
+.home2-swipe {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+.home2-swipe {
+  margin-top: 6rem;
+}
+  .home2-panel img {
+  height: 60%;
+}
+
+.home2-text {
+  width: 37%;
+  font-size: 6vw;
+  margin: .5rem;
+ /*  padding-bottom: 4rem; */
+  
+}
+
+.home2-text.left {
+  top:59%;
+  
+}
+.home2-text.right {
+  top:56%;
+  
+}
+
+}
+/* -------- MÓVIL (<= 576px) -------- */
+@media (max-width: 575.98px) {
+
+  /* HERO: aún más compacto */
+  
+  .judeline-logo{
+    font-size: 3vw;
+    letter-spacing: 2rem;
+    margin: 3rem 0;
+    
+  }
+  .hero-logo{
+    width: clamp(150px, 42vw, 230px);
+  }
+.home1-section {
+  height: 230vh;
+}
+.home1-img {
+  width: 55%;
+}
+
+.reveal-mask {
+  width: 100%;
+  height: 100%;
+}
+
+.reveal-text {
+  top: 30%;
+  left: 49%;
+}
+.reveal-text p {
+  font-size: 9vw;
+}
+
+.left-text p {
+  font-size: 7vw;
+  width: 70%;
+}
+  .home2-panel img {
+  height: 60%;
+}
+
+.home2-text {
+  width: 33%;
+  font-size: 6vw;
+  margin: 1.5rem;
+ /*  padding-bottom: 4rem; */
+  
+}
+.home2-text.left {
+  top:62%;
+  
+}
+.home2-text.right {
+  top:58%;
+  
+}
+
+}
+
+@media (min-width: 992px){
+
+
+
+}
 
 /* ------------ PÁGINA CONCIERTOS ------------ */
 
@@ -474,9 +619,100 @@ table td {
   transform: scaleY(0);
 }
 
+/* ONCIERTOS RESPONSIVE */
+@media (min-width: 768px){
 
+  /* columna del medio más razonable */
+  .conciertos-section colgroup col:nth-child(1){ width: 160px !important; }
+  .conciertos-section colgroup col:nth-child(2){ width: 260px !important; }
+  .conciertos-section colgroup col:nth-child(3){ width: auto !important; }
 
+  /* hover image: sigue siendo ABSOLUTE dentro de la sección (NO fixed) */
+  .conciertos-section .hover-image{
+    left: 18px;
+    top: 20%;
+  }
+  .conciertos-section .hover-image img{
+    width: min(38vw, 280px);
+  }
 
+  /* TOUR: vuelve al comportamiento original (absolute + draggable) */
+  .tour-section{
+    height: 85vh;
+    overflow: hidden;
+    padding: 5.5rem 1.5rem 1.5rem;
+  }
+
+  .tour-images{
+    position: absolute;
+    inset: 0;
+    display: block;
+    padding: 0;
+  }
+
+  .tour-img{
+    position: absolute !important;
+    width: 13vw;
+    opacity: 0;                 /* tu JS/GSAP las animará */
+    transform: scale(0.9);
+    cursor: grab;
+    pointer-events: auto;
+  }
+
+  /* líneas verticales demasiado largas en iPad */
+  .tour-line.vertical{
+    height: 70% !important;
+    top: 15% !important;
+  }
+}
+
+@media (max-width: 575.98px) {
+
+  /* =========================
+     CONCIERTOS: hover-image NO se desborda
+     ========================= */
+
+  .conciertos-section { position: relative; overflow: hidden; }
+
+  /* Mantén tu comportamiento pero con límites claros */
+  .conciertos-section .hover-image{
+    left: 10px !important;
+    right: 10px !important;   /* CLAVE: limita el ancho dentro del viewport */
+    top: 16% !important;
+    transform: none !important;
+  }
+
+  /* La imagen nunca podrá superar el ancho visible */
+  .conciertos-section .hover-image img{
+    width: auto !important;
+    max-width: 55vw !important;          /* más conservador para que no se salga */
+    height: auto !important;
+    display: block;
+  }
+
+  /* Extra: por si el JS le mete left “muy grande”, esto recorta lo que sobresalga */
+  .conciertos-section { overflow-x: clip; } /* fallback: hidden ya lo cubre */
+
+  /* =========================
+     TOUR: imágenes un poco más pequeñas
+     (sin tocar animación)
+     ========================= */
+
+  .tour-img{
+    width: min(22vw, 95px) !important;   /* antes era más grande */
+    max-width: calc(50vw - 28px) !important;
+  }
+
+  /* Opcional: si al reducirlas queda demasiado espacio, las centramos un pelín */
+  .tour-img:nth-child(1){ left: 12% !important; top: 18% !important; }
+  .tour-img:nth-child(2){ left: 60% !important; top: 16% !important; }
+  .tour-img:nth-child(3){ left: 18% !important; top: 40% !important; }
+  .tour-img:nth-child(4){ left: 62% !important; top: 38% !important; }
+  .tour-img:nth-child(5){ left: 36% !important; top: 28% !important; }
+  .tour-img:nth-child(6){ left: 44% !important; top: 52% !important; }
+  .tour-img:nth-child(7){ left: 16% !important; top: 64% !important; }
+  .tour-img:nth-child(8){ left: 62% !important; top: 66% !important; }
+}
 /* ------------ PÁGINA MERCH ------------ */
 .drop-section {
   position: relative;
