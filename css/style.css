@@ -121,6 +121,22 @@ body, html {
   text-decoration: none;
 }
 
+/* RESPONSIVE FOOTER */
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .footer-bg {
+    width: 45%;      /* más grande que desktop */
+    top: 65%;        /* un poco más abajo */
+  }
+}
+
+/* Móviles grandes / pequeños (≤ 767px) */
+@media (max-width: 767px) {
+  .footer-bg {
+    width: 70%;      /* mucho más grande en móvil */
+    top: 70%;        /* ajustar posición vertical */
+  }
+}
 
 .custom-cursor-oficial {
   position: fixed;
@@ -935,6 +951,115 @@ table td {
   z-index: 1;
   transition: opacity 0.3s;
 }
+/* =========================
+   TABLET (≤ 991.98px)
+========================= */
+@media (max-width: 991.98px) {
+
+  .newsletter-section {
+    height: auto;
+    padding: 4rem 2rem;
+    text-align: left;
+  }
+
+  .newsletter-bg {
+    width: 50vw;
+    left: 70%;
+  
+  }
+
+  .newsletter-section h2 {
+    font-size: 2rem;
+  }
+
+  .newsletter-section p {
+    font-size: 1rem;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  form {
+    margin-top: 2rem;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  .newsletter-section {
+    min-height: 600px;      /* asegura que haya espacio para texto + formulario */
+    padding-bottom: 6rem;   /* espacio extra para que no choque con la imagen */
+  }
+
+  .newsletter-bg {
+    width: 55vw;             /* imagen más grande */
+    top: 60%;                /* baja un poco para dejar espacio al formulario */
+    left: 60%;               /* ajusta posición horizontal */
+  }
+
+  form {
+    margin-top: 3rem;        /* formulario más abajo, pero sin mover la imagen */
+  }
+}
+/* =========================
+   MÓVIL (≤ 575.98px)
+========================= */
+@media (max-width: 575.98px) {
+
+  .newsletter-section {
+   /*  padding: 5rem 1.5rem 15rem; 🔑 padding-bottom grande para reservar espacio a la imagen */
+    text-align: center;
+    position: relative;
+  }
+    
+
+  .newsletter-bg {
+    position: absolute;
+    width: 80vw;
+    left: 50%;
+    top: 80%; /* 🔑 imagen baja sin tocar el texto */
+    transform: translate(-50%, -50%);
+    z-index: 1; /* imagen detrás del contenido */
+  }
+
+  .newsletter-section h2 {
+    font-size: 1.5rem;
+   /*  margin-bottom: 0.75rem; */
+    z-index: 2; /* sobre la imagen */
+    position: relative;
+  }
+
+  .newsletter-section p {
+    font-size: 0.9rem;
+   margin-bottom: rem;
+    z-index: 2;
+    position: relative;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    z-index: 2;
+    
+    margin-bottom:12rem;
+    position: relative;
+    /* 🔑 eliminamos margin-top, el padding-bottom de la sección crea el espacio */
+  }
+
+  .newsletter-input {
+    max-width: 11rem;
+     padding: 0.4rem 1.2rem;
+    text-align: center;
+  }
+
+  .newsletter-btn {
+    padding: 0.4rem 1.2rem;
+    font-size: 0.8rem;
+  }
+}
+
+
 /* RESPONSIVE MERCH */
 /* =========================================
    MERCH (DROP TABLE) RESPONSIVE
