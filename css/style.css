@@ -637,170 +637,233 @@ table td {
 
 /* ONCIERTOS RESPONSIVE */
 /* tablet */
+/* =========================
+   TOUR — TABLET (≤ 991.98px)
+   Mantiene líneas + título + animación
+   Solo ordena las fotos en 2 columnas
+========================= */
+/* =========================
+   TOUR — TABLET (≤ 991.98px)
+   2 fotos por fila + pequeñas
+   SIN drag
+   Líneas + fondo + título se mantienen
+========================= */
 @media (max-width: 991.98px){
 
-  /* columna del medio más razonable */
-  .conciertos-section colgroup col:nth-child(1){ width: 160px !important; }
-  .conciertos-section colgroup col:nth-child(2){ width: 260px !important; }
-  .conciertos-section colgroup col:nth-child(3){ width: auto !important; }
-
-  /* hover image: sigue siendo ABSOLUTE dentro de la sección (NO fixed) */
-  .conciertos-section .hover-image{
-    left: 18px;
-    top: 20%;
-  }
-  .conciertos-section .hover-image img{
-    width: min(38vw, 280px);
-  }
-
-  /* TOUR: vuelve al comportamiento original (absolute + draggable) */
   .tour-section{
     height: 85vh;
     overflow: hidden;
-    padding: 5.5rem 1.5rem 1.5rem;
+    padding: 4.5rem 1.5rem 1.5rem;
   }
 
+  /* ✅ convertimos el contenedor en GRID pero lo dejamos absolute
+     para que conviva con tus líneas/fondo */
   .tour-images{
-    position: absolute;
-    inset: 0;
-    display: block;
-    padding: 0;
+    position: absolute !important;
+    inset: 0 !important;
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 1rem !important;
+    align-content: center !important;   /* centra las filas en vertical */
+    justify-items: center !important;   /* centra cada imagen en su celda */
+    padding: 0 3rem 2rem !important;
+    z-index: 5; /* como ya tienes */
   }
+
+  /* ✅ imágenes: pequeñas + en flujo del grid + sin drag */
+  .tour-img{
+    position: relative !important;   /* deja de ser absolute */
+    left: auto !important;
+    top: auto !important;
+
+    width: 9rem !important;
+    height: auto !important;
+
+    opacity: 1 !important;           /* para que SIEMPRE se vean en tablet */
+    transform: none !important;
+
+    pointer-events: none !important; /* quita drag */
+    cursor: default !important;
+    user-select: none !important;
+    -webkit-user-drag: none !important;
+    touch-action: none !important;
+  }
+  .tour-line.horizontal {
+  height: 1px;
+  width: 100%;
+  transform-origin: left center; /* dibuja desde la izquierda */
+  transform: scaleX(0);
+}
+
+.tour-line.vertical {
+  width: 1px;
+  height: 90%;
+  transform-origin: center top; /* dibuja desde arriba */
+  transform: scaleY(0);
+}
+}
+
+
+/* =========================
+   TOUR — MÓVIL (≤ 575.98px)
+   2 fotos por fila + más pequeñas
+   SIN drag
+   Líneas + fondo + título se mantienen
+========================= */
+@media (max-width: 575.98px){
+  
+.tour-section {
+  
+  padding: 1rem 2rem 0; /* empieza justo debajo */
+  overflow: hidden;
+  height: 100vh;
+}
+   .tour-images{
+    position: absolute !important;
+    inset: 0 !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.75rem !important;
+    align-content: center !important;   /* centra las filas en vertical */
+    justify-items: center !important;   /* centra cada imagen en su celda */
+      padding: 1.95rem 4rem !important;
+   
+  }
+  
 
   .tour-img{
-    position: absolute !important;
-    width: 13vw;
-    opacity: 0;                 /* tu JS/GSAP las animará */
-    transform: scale(0.9);
-    cursor: grab;
-    pointer-events: auto;
+    width: min(24vw, 105px) !important;  /* más pequeña en móvil */
   }
 
-  /* líneas verticales demasiado largas en iPad */
-  .tour-line.vertical{
-    height: 70% !important;
-    top: 15% !important;
+  /* si tu título se te iba de tamaño, puedes mantener esto */
+  .tour-title{
+    /* font-size: clamp( 4rem, 8.5vw, 3.8rem) !important; */
+     font-size: 8.5vw;
+    line-height: 1;
+  }
+
+  .tour-line {
+  position: absolute;
+  background-color: white;
+  pointer-events: none;
+}
+  .tour-line.horizontal {
+  height: 1px;
+  width: 100%;
+  transform-origin: left center; /* dibuja desde la izquierda */
+  transform: scaleX(0);
+}
+
+.tour-line.vertical {
+ width: 1px;
+  height: 100%;
+  transform-origin: center top; /* dibuja desde arriba */
+  transform: scaleY(0);
+}
+  /* 🔴 NO tocamos las líneas */
+}
+
+/* =========================
+   TOUR — MÓVIL (≤ 575.98px)
+   Mantiene líneas + título + animación
+   Fotos 2x4 y más pequeñas
+==========
+
+
+/* =========================
+   CONCIERTOS — TABLET + MÓVIL
+   - Sin hover image
+   - Texto blanco
+   - Oculta columna VENUE
+========================= */
+@media (max-width: 991.98px){
+ .conciertos-section{
+    background-position: 80% 50% !important; /* centro real */
+    /* o si lo quieres un pelín más a la izquierda */
+    /* background-position: 45% 50% !important; */
+  }
+   .conciertos-section,
+  .conciertos-section *{
+    max-width: 100%;
+  }
+  .conciertos-section .display-4{
+    font-size: 2.5rem !important;
+    margin-bottom: 1rem !important;
+  }.conciertos-section .hover-image{
+    max-width: 100% !important;
+  }
+  .conciertos-section .hover-image img{
+    max-width: 40vw !important; /* ajusta si quieres */
+    height: auto !important;
+    display: block;
+  }
+
+  .conciertos-section .table-dark th,
+  .conciertos-section .table-dark td{
+     font-size: 2.2rem !important;
+    padding: 1rem 1.45rem !important;
+    line-height: 1.05 !important;
+    color: #fff !important; /* asegura blanco */
+  }
+  /* 1) Quitar hover image */
+  .conciertos-section .hover-image{
+    display: none !important;
+  }
+
+  /* 2) Letras blancas (sin opacidad) */
+  .conciertos-section .table-dark th,
+  .conciertos-section .table-dark td{
+    color: #fff !important;
+  }
+
+  /* 3) Ocultar columna VENUE (2ª columna) */
+  .conciertos-section table thead th:nth-child(2),
+  .conciertos-section table tbody td:nth-child(2){
+    display: none !important;
+  }
+
+  /* Ocultar también el col del colgroup (para que no reserve hueco) */
+  .conciertos-section table colgroup col:nth-child(2){
+    display: none !important;
+  }
+
+  /* Ajuste de anchos (solo quedan col 1 y 3) */
+  .conciertos-section table colgroup col:nth-child(1){ width: 160px !important; }
+  .conciertos-section table colgroup col:nth-child(3){ width: auto !important; }
+
+  /* Mejor wrap en UBICACIÓN */
+  .conciertos-section .table-dark td:nth-child(3),
+  .conciertos-section .table-dark th:nth-child(3){
+    white-space: normal !important;
+    word-break: break-word !important;
   }
 }
-/* movil */
-@media (max-width: 575.98px) {
+
+/* =========================
+   CONCIERTOS — MÓVIL (extra compacto)
+========================= */
+@media (max-width: 575.98px){
+ .conciertos-section{
+    background-position: 70% 50% !important; /* centro real */
+    /* o si lo quieres un pelín más a la izquierda */
+    /* background-position: 45% 50% !important; */
+  }
+   
   .conciertos-section .display-4{
-    font-size: 1.05rem !important;
+    font-size: 1.7rem !important;
     margin-bottom: 1rem !important;
   }
 
   .conciertos-section .table-dark th,
   .conciertos-section .table-dark td{
-    font-size: .68rem !important;
-    padding: .34rem .45rem !important;
+     font-size: 1.2rem !important;
+    padding: 1rem 1.45rem !important;
     line-height: 1.05 !important;
+    color: #fff !important; /* asegura blanco */
   }
 
-  /* Columnas más compactas (pisan el colgroup inline) */
-  .conciertos-section colgroup col:nth-child(1){ width: 88px !important; }
-  .conciertos-section colgroup col:nth-child(2){ width: 145px !important; }
-  .conciertos-section colgroup col:nth-child(3){ width: auto !important; }
-
-  /* Wrap para que no empuje */
-  .conciertos-section .table-dark td:nth-child(2),
-  .conciertos-section .table-dark td:nth-child(3),
-  .conciertos-section .table-dark th:nth-child(2),
-  .conciertos-section .table-dark th:nth-child(3){
-    white-space: normal !important;
-    word-break: break-word !important;
-  }
-
-  /* Contención */
-  .conciertos-section{ position: relative; overflow: hidden; }
-
-  /* Hover image: misma “columna” (ancho perfecto) */
-  .conciertos-section .hover-image{
-    position: absolute !important;
-    left: 10px !important;
-    right: 10px !important;
-    transform: none !important;
-    z-index: 50 !important;
-
-    /* valor por defecto si no hay hover */
-    top: 16% !important;
-  }
-
-  .conciertos-section .hover-image img{
-    width: auto !important;
-    max-width: 30vw !important; /* un pelín más pequeña */
-    height: auto !important;
-    display: block;
-  }
-
-  /* ✅ MOVER EN ALTURA SEGÚN FILA (CSS-only con :has) */
-  /* Ajusta los % si quieres que quede todavía más “pegado” a cada fila */
-  .conciertos-section:has(tbody tr:nth-child(1):hover)  .hover-image{ top: 22% !important; }
-  .conciertos-section:has(tbody tr:nth-child(2):hover)  .hover-image{ top: 26% !important; }
-  .conciertos-section:has(tbody tr:nth-child(3):hover)  .hover-image{ top: 30% !important; }
-  .conciertos-section:has(tbody tr:nth-child(4):hover)  .hover-image{ top: 34% !important; }
-  .conciertos-section:has(tbody tr:nth-child(5):hover)  .hover-image{ top: 38% !important; }
-  .conciertos-section:has(tbody tr:nth-child(6):hover)  .hover-image{ top: 42% !important; }
-  .conciertos-section:has(tbody tr:nth-child(7):hover)  .hover-image{ top: 46% !important; }
-  .conciertos-section:has(tbody tr:nth-child(8):hover)  .hover-image{ top: 50% !important; }
-  .conciertos-section:has(tbody tr:nth-child(9):hover)  .hover-image{ top: 54% !important; }
-  .conciertos-section:has(tbody tr:nth-child(10):hover) .hover-image{ top: 58% !important; }
-  .conciertos-section:has(tbody tr:nth-child(11):hover) .hover-image{ top: 62% !important; }
-  .conciertos-section:has(tbody tr:nth-child(12):hover) .hover-image{ top: 66% !important; }
-  .conciertos-section:has(tbody tr:nth-child(13):hover) .hover-image{ top: 70% !important; }
-  .conciertos-section:has(tbody tr:nth-child(14):hover) .hover-image{ top: 72% !important; }
-  .conciertos-section:has(tbody tr:nth-child(15):hover) .hover-image{ top: 74% !important; }
-  .conciertos-section:has(tbody tr:nth-child(16):hover) .hover-image{ top: 76% !important; }
-  .conciertos-section:has(tbody tr:nth-child(17):hover) .hover-image{ top: 78% !important; }
-
-
-  .tour-section {
-  padding: 4rem 2rem 0; /* empieza justo debajo */
-  height: 100vh;
-}
-
-/* tour-title {
-  font-weight: 700;
-  font-size: 11.5vw;
-  line-height: 1;
-
-}
-
-.tour-images {
-  position: absolute;
-  inset: 0;
-  z-index: 5;
-}
-
-.tour-img {
-  position: absolute;
-  width: 13vw;
-  opacity: 0;
-  transform: scale(0.9);
-  cursor: grab;
-  pointer-events: auto;
-} */
- 
-  /* ---------- TOUR: imágenes un poco más pequeñas ---------- */
-  .tour-img{
-    width: min(20vw, 82px) !important;
-  }
-
-  /* TOUR: el título se estira demasiado -> limita tamaño base */
-  .tour-title{
-    font-size: clamp(3.6rem, 8.5vw, 3.8rem) !important;
-    line-height: 1 !important;
-  }
-
-  /* TOUR: líneas demasiado largas -> recorta longitudes (sin quitar animación) */
-  .tour-line.horizontal{
-    width: 100% !important;
-    left: 7% !important;   /* centrada */
-  }
-
-  .tour-line.vertical{
-    height: 100% !important;
-    top: 15% !important;
-  }
+  /* FECHA más estrecha en móvil */
+  .conciertos-section table colgroup col:nth-child(1){ width: 90px !important; }
 }
 
 /* ------------ PÁGINA MERCH ------------ */
@@ -831,7 +894,113 @@ table td {
   padding-top: 40vh;
 }
 
+
+
+
+/* =========================================================
+   MERCH / DROP — RESPONSIVE limpio (desktop + tablet + móvil)
+   - Desktop: mantiene el hover (JS)
+   - Tablet/Móvil: SIN hover-image (touch) + tabla compacta
+   - Texto blanco con opacidad
+   ========================================================= */
+
+/* ---------- BASE (DESKTOP / por defecto) ---------- */
+/* Menos hueco negro entre DROP2025 y tabla (antes 40vh) */
+
+/* tablet */
+
+
+/* ---------- TABLET + MÓVIL: quitar hover-image ---------- */
+@media (max-width: 991.98px){
+
+  /* En touch NO usamos hover-image */
+  .drop-section .hover-image{
+    display: none !important;
+  }
+
+  /* Menos hueco negro (más pegado a la tabla) */
+  .drop-section .merch-table-wrapper{
+    padding-top: 14vh !important; /* si lo quieres aún más pegado prueba 12vh */
+  }
+
+  /* Título algo más pequeño */
+  .drop-section .drop-title{
+    top: 8% !important;
+    font-size: 14vw !important;
+    letter-spacing: -8px !important;
+    transform: translateX(-50%) scaleY(1.12) !important;
+  }
+
+  /* Columnas más razonables (pisan el colgroup inline) */
+  .drop-section .merch-table-wrapper colgroup col:nth-child(1){ width: 90px !important; }
+  .drop-section .merch-table-wrapper colgroup col:nth-child(2){ width: 200px !important; }
+  .drop-section .merch-table-wrapper colgroup col:nth-child(3){ width: 160px !important; }
+  .drop-section .merch-table-wrapper colgroup col:nth-child(4){ width: 240px !important; }
+  .drop-section .merch-table-wrapper colgroup col:nth-child(5){ width: auto !important; }
+
+  /* Wrap para que no empuje */
+  .drop-section .table-dark td:nth-child(2),
+  .drop-section .table-dark td:nth-child(3),
+  .drop-section .table-dark td:nth-child(4),
+  .drop-section .table-dark th:nth-child(2),
+  .drop-section .table-dark th:nth-child(3),
+  .drop-section .table-dark th:nth-child(4){
+    white-space: normal !important;
+    word-break: break-word !important;
+  }
+}
+
+
+/* ---------- MÓVIL (<= 575.98px) ---------- */
+@media (max-width: 575.98px){
+
+  /* más compacto aún */
+  .drop-section .merch-table-wrapper{
+    padding-top: 11vh !important;
+  }
+
+  /* título */
+  .drop-section .drop-title{
+    top: 12% !important;
+    font-size: 20vw !important;
+    letter-spacing: -6px !important;
+    transform: translateX(-50%) scaleY(1.12) !important;
+  }
+
+
+  /* título MERCHANDISING */
+  .drop-section .display-4{
+    font-size: 1.05rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  /* tabla más pequeña */
+  .drop-section .table-dark th,
+  .drop-section .table-dark td{
+    font-size: .68rem !important;
+    padding: .34rem .45rem !important;
+    line-height: 1.05 !important;
+    color: rgba(255,255,255,0.70) !important; /* un pelín más visible en móvil */
+  }
+
+  /* columnas aún más compactas */
+  .drop-section .merch-table-wrapper colgroup col:nth-child(1){ width: 70px !important; }
+  .drop-section .merch-table-wrapper colgroup col:nth-child(2){ width: 120px !important; }
+  .drop-section .merch-table-wrapper colgroup col:nth-child(3){ width: 105px !important; }
+  .drop-section .merch-table-wrapper colgroup col:nth-child(4){ width: 140px !important; }
+  .drop-section .merch-table-wrapper colgroup col:nth-child(5){ width: auto !important; }
+
+  /* Grid de productos a 1 columna */
+  .products-grid{
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+}
+
+
 /* grid de productos */
+
+
 
 .products-grid {
   display: grid;
@@ -950,8 +1119,9 @@ table td {
    TABLET (≤ 991.98px)
 ---------------------- */
 @media (max-width: 991.98px) {
-  #cartOffcanvas {
-    width: 60vw;
+    #cartOffcanvas {
+    width: 100vw !important;
+    max-width: 100vw !important;
   }
 
   #cartItems li {
@@ -998,8 +1168,9 @@ table td {
    MÓVIL (≤ 575.98px)
 ---------------------- */
 @media (max-width: 575.98px) {
-  #cartOffcanvas {
-    width: 90vw;
+    #cartOffcanvas {
+    width: 100vw !important;
+    max-width: 100vw !important;
   }
 
   #cartItems li {
@@ -1048,7 +1219,51 @@ table td {
     font-size: 0.9rem;
     padding: 0.5rem;
   }
+
+#cartOffcanvas .list-group-item {
+  background-color: #000;  /* fondo negro de cada item */
+  color: #fff;             /* texto blanco */
+  border: 1px solid #333;  /* opcional: separador sutil */
 }
+
+.offcanvas-title {
+  text-transform: uppercase;
+}
+
+
+}
+/* =========================
+   CENTRAR (- 1 + precio)
+   SOLO TABLET + MÓVIL
+========================= */
+@media (max-width: 991.98px){
+
+  /* el <li> ya lo apilas, esto asegura centrado real */
+  #cartItems li{
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  /* el wrapper interno (normalmente un div.d-flex) centrado */
+  #cartItems li div.d-flex{
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    text-align: center !important;
+  }
+
+  /* la fila de cantidad (- 1 +) centrada */
+  .cart-quantity{
+    justify-content: center !important;
+    width: 100% !important;
+  }
+
+  /* si el precio está en un span dentro del li, lo centramos también */
+  #cartItems li span{
+    text-align: center !important;
+  }
+}
+
 
 
 
@@ -1227,159 +1442,6 @@ table td {
 /* tablet + móvil (<= 991.98px) */
 
 
-@media (max-width: 991.98px){
-    .drop-section .merch-table-wrapper{
-    padding-top: 11vh !important;   /* antes 26vh/40vh */
-  }
-}
-
-@media (min-width: 768px) and (max-width: 991.98px){
-
-  /* Menos hueco negro entre DROP2025 y tabla */
- 
-  /* Título DROP2025 más controlado y un poco más abajo */
-  .drop-section .drop-title{
-    top: 8% !important;
-    font-size: 13vw !important;
-    letter-spacing: -8px !important;
-    transform: translateX(-50%) scaleY(1.12) !important;
-  }
-
-  /* Tabla compacta tablet (mantén si ya te gusta) */
-  .drop-section .merch-table-wrapper colgroup col:nth-child(1){ width: 90px !important; }
-  .drop-section .merch-table-wrapper colgroup col:nth-child(2){ width: 200px !important; }
-  .drop-section .merch-table-wrapper colgroup col:nth-child(3){ width: 160px !important; }
-  .drop-section .merch-table-wrapper colgroup col:nth-child(4){ width: 240px !important; }
-  .drop-section .merch-table-wrapper colgroup col:nth-child(5){ width: auto !important; }
-
-  /* Contención */
-  .drop-section{ position: relative; overflow: hidden; }
-
-  /* Hover image: MISMA COLUMNA (X fijo) */
-  .drop-section .hover-image{
-    position: absolute !important;     /* pisa inline fixed */
-    display: block !important;         /* pisa inline display:none */
-    left: 18px !important;
-    right: auto !important;
-    transform: none !important;
-    z-index: 1000 !important;
-
-    /* default si no hay hover */
-    top: 20% !important;
-  }
-
-  .drop-section .hover-image img{
-    width: min(28vw, 260px) !important;   /* un pelín más pequeña */
-    height: auto !important;
-    display: block;
-  }
-
-  /* ✅ IGUAL QUE MÓVIL: MOVER ALTURA SEGÚN FILA (CSS-only con :has) */
-  .drop-section:has(.merch-table-wrapper tbody tr:nth-child(1):hover) .hover-image{ top: 24% !important; }
-  .drop-section:has(.merch-table-wrapper tbody tr:nth-child(2):hover) .hover-image{ top: 29% !important; }
-  .drop-section:has(.merch-table-wrapper tbody tr:nth-child(3):hover) .hover-image{ top: 34% !important; }
-  .drop-section:has(.merch-table-wrapper tbody tr:nth-child(4):hover) .hover-image{ top: 39% !important; }
-  .drop-section:has(.merch-table-wrapper tbody tr:nth-child(5):hover) .hover-image{ top: 44% !important; }
-  .drop-section:has(.merch-table-wrapper tbody tr:nth-child(6):hover) .hover-image{ top: 49% !important; }
-  .drop-section:has(.merch-table-wrapper tbody tr:nth-child(7):hover) .hover-image{ top: 54% !important; }
-  .drop-section:has(.merch-table-wrapper tbody tr:nth-child(8):hover) .hover-image{ top: 59% !important; }
-  .drop-section:has(.merch-table-wrapper tbody tr:nth-child(9):hover) .hover-image{ top: 64% !important; }
-}
-
-
-
-/* móvil (<= 575.98px) */
-@media (max-width: 575.98px){
-
-   .drop-section .merch-table-wrapper{
-    padding-top: 11vh !important;   /* antes 26vh/40vh */
-  }
-  /* Título MERCHANDISING más pequeño */
-  .drop-section .display-4{
-    font-size: 1.05rem !important;
-    margin-bottom: 1rem !important;
-  }
-
-  /* Tabla más pequeña */
-  .drop-section .table-dark th,
-  .drop-section .table-dark td{
-    font-size: .68rem !important;
-    padding: .34rem .45rem !important;
-    line-height: 1.05 !important;
-  }
-
-  /* Columnas más compactas (5 cols) */
-  .drop-section .merch-table-wrapper colgroup col:nth-child(1){ width: 70px !important; }
-  .drop-section .merch-table-wrapper colgroup col:nth-child(2){ width: 120px !important; }
-  .drop-section .merch-table-wrapper colgroup col:nth-child(3){ width: 105px !important; }
-  .drop-section .merch-table-wrapper colgroup col:nth-child(4){ width: 140px !important; }
-  .drop-section .merch-table-wrapper colgroup col:nth-child(5){ width: auto !important; }
-
-  /* Wrap para que no empuje */
-  .drop-section .table-dark td:nth-child(2),
-  .drop-section .table-dark td:nth-child(3),
-  .drop-section .table-dark td:nth-child(4),
-  .drop-section .table-dark th:nth-child(2),
-  .drop-section .table-dark th:nth-child(3),
-  .drop-section .table-dark th:nth-child(4){
-    white-space: normal !important;
-    word-break: break-word !important;
-  }
-
-  /* Menos hueco negro móvil */
-  .drop-section .merch-table-wrapper{
-    padding-top: 20vh !important;
-  }
-
-  /* DROP2025 menos grande y más abajo */
-  .drop-section .drop-title{
-    top: 12% !important;
-    font-size: 16vw !important;
-    letter-spacing: -6px !important;
-    transform: translateX(-50%) scaleY(1.12) !important;
-  }
-
-  /* Hover image: misma “columna” (X fijo) */
-  .drop-section{ position: relative; overflow: hidden; }
-
-  .drop-section .hover-image{
-    position: absolute !important;
-    display: block !important;
-    left: 10px !important;
-    right: 10px !important;
-    transform: none !important;
-    z-index: 1000 !important;
-
-    /* default */
-    top: 18% !important;
-  }
-
-  .drop-section .hover-image img{
-    width: auto !important;
-    max-width: 30vw !important;
-    height: auto !important;
-    display: block;
-  }
-
-  /* ✅ MOVER EN ALTURA SEGÚN FILA (CSS-only con :has) */
-  /* Tus filas en DROP son 9 -> mapeo 1..9 */
-  .drop-section:has(.merch-table-wrapper tbody tr:nth-child(1):hover) .hover-image{ top: 26% !important; }
-  .drop-section:has(.merch-table-wrapper tbody tr:nth-child(2):hover) .hover-image{ top: 31% !important; }
-  .drop-section:has(.merch-table-wrapper tbody tr:nth-child(3):hover) .hover-image{ top: 36% !important; }
-  .drop-section:has(.merch-table-wrapper tbody tr:nth-child(4):hover) .hover-image{ top: 41% !important; }
-  .drop-section:has(.merch-table-wrapper tbody tr:nth-child(5):hover) .hover-image{ top: 46% !important; }
-  .drop-section:has(.merch-table-wrapper tbody tr:nth-child(6):hover) .hover-image{ top: 51% !important; }
-  .drop-section:has(.merch-table-wrapper tbody tr:nth-child(7):hover) .hover-image{ top: 56% !important; }
-  .drop-section:has(.merch-table-wrapper tbody tr:nth-child(8):hover) .hover-image{ top: 61% !important; }
-  .drop-section:has(.merch-table-wrapper tbody tr:nth-child(9):hover) .hover-image{ top: 66% !important; }
-
-  .products-grid{
-    grid-template-columns: 1fr !important;
-    gap: 1.25rem !important;
-  }
-}
-
-
 
 
 /* ------------ PÁGINA DE MÚSICA ------------ */
@@ -1427,7 +1489,7 @@ table td {
   color: white;
   font-family: 'Helvetica', sans-serif;
   font-weight: 700;
-  font-size: 6rem;
+  font-size: 5rem;
   transform: scaleY(0.4); 
   letter-spacing: -0.05em; 
   position: relative;   
@@ -1490,6 +1552,8 @@ table td {
   
 }
 
+
+
 }
 /* ipad mas grande */
 @media (min-width: 1024px) and (max-width: 1366px) {
@@ -1537,10 +1601,22 @@ table td {
 }
 
 #carousel-caption {
-  font-size: 6rem;
+  font-size: 4rem;
   transform: scaleY(0.4); 
-  top: 20%;             
+  top: 25%;             
   
+}
+
+
+.carousel-caption-link {
+  color: white;
+  font-family: 'Helvetica', sans-serif;
+  font-weight: 700;
+  font-stretch: condensed; /* achatado */
+  font-size: 3rem;
+  letter-spacing: -0.05em;
+  text-decoration: none;
+  transition: color 0.3s;
 }
 }
 
