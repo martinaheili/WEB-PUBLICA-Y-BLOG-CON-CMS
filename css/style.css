@@ -345,7 +345,8 @@ body, html {
 
 /* -------- TABLET / iPad (<= 992px) -------- */
 
-@media (max-width: 991.98px){
+@media (max-width: 991.98px),
+       (min-width: 992px) and (max-width: 1366px){
 .judeline-logo{
      font-size: 4vw;
     font-weight:bold;
@@ -648,7 +649,8 @@ table td {
    SIN drag
    Líneas + fondo + título se mantienen
 ========================= */
-@media (max-width: 991.98px){
+@media (max-width: 991.98px),
+       (min-width: 992px) and (max-width: 1366px) {
 
   .tour-section{
     height: 85vh;
@@ -922,11 +924,16 @@ table td {
   .drop-section .merch-table-wrapper{
     padding-top: 14vh !important; /* si lo quieres aún más pegado prueba 12vh */
   }
+  .drop-section .table-dark th,
+  .drop-section .table-dark td{
+   
+    color: rgba(255,255,255,0.70) !important; /* un pelín más visible en móvil */
+  }
 
   /* Título algo más pequeño */
   .drop-section .drop-title{
     top: 8% !important;
-    font-size: 14vw !important;
+    font-size: 16vw !important;
     letter-spacing: -8px !important;
     transform: translateX(-50%) scaleY(1.12) !important;
   }
@@ -1118,7 +1125,8 @@ table td {
 /* ---------------------
    TABLET (≤ 991.98px)
 ---------------------- */
-@media (max-width: 991.98px) {
+@media (max-width: 991.98px),
+       (min-width: 992px) and (max-width: 1366px) {
     #cartOffcanvas {
     width: 100vw !important;
     max-width: 100vw !important;
@@ -1520,7 +1528,8 @@ table td {
 
 /* ------------ RESPONSIVE ------------ */
 /* ipad */
-@media (max-width: 991.98px){
+@media (max-width: 991.98px),
+       (min-width: 992px) and (max-width: 1366px){
    .music-section {
   height: 100vh;
   padding-top: 5rem;
@@ -1556,26 +1565,7 @@ table td {
 
 }
 /* ipad mas grande */
-@media (min-width: 1024px) and (max-width: 1366px) {
-  .carousel-container {
-    width: 480px;   /* un poco más grande que en desktop */
-    height: 320px;  
-    top: 45%;       /* ajustar vertical */
-    left: 50%;
-    transform: translate(-50%, -50%);
-    perspective: 1000px;
-  }
 
-  .img {
-    width: 480px;
-    height: 320px;
-  }
-
-  #carousel-caption {
-    font-size: 5rem;
-    top: 35%;
-  }
-}
 /* movil */
 @media (max-width: 575.98px) {
 
