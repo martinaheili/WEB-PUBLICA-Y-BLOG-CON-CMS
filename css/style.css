@@ -1612,62 +1612,105 @@ table td {
 
 
 /* ------------ RESPONSIVE ------------ */
-@media (max-width: 768px) {
-  .nav-link {
-    font-size: 0.85rem;
-    padding: 0.3rem;
+/* =========================================
+   NAV MOBILE FULLSCREEN (menú a pantalla completa)
+   ========================================= */
+@media (max-width: 575.98px){
+
+  /* el contenedor colapsable pasa a fullscreen */
+  #navbarMenu{
+    position: fixed;
+    inset: 0;                 /* top:0 right:0 bottom:0 left:0 */
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+    z-index: 9998;            /* por debajo del cursor custom si quieres */
+    padding: 6.5rem 1.5rem 2rem;  /* deja espacio arriba para la navbar */
+
+    overflow-y: auto;
   }
 
-  .separator {
-    padding: 0 0.3rem;
+  /* cuando está cerrado (Bootstrap le pone display:none o height 0)
+     no hace falta tocar nada, pero por si se “ve” algo: */
+  #navbarMenu.collapse:not(.show){
+    display: none !important;
+  }
+
+  /* links en columna y grandes */
+  .navbar-nav{
+    width: 100%;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 1rem;
+  }
+
+  .nav-link{
+    font-size: 1.6rem !important;
+    padding: 0.5rem 0 !important;
+    letter-spacing: 0.05em;
+    color: #fff !important;
+  }
+
+  .separator{
+    display: none !important;
+  }
+
+  /* opcional: que el botón hamburguesa quede por encima del fullscreen */
+  .navbar-toggler{
+    position: relative;
+    z-index: 9999;
   }
 }
 
-/* Móviles grandes (≤ 768px) */
-@media (max-width: 768px) {
-  .navbar-nav {
-    flex-wrap: nowrap; /* mantiene links en línea si hay espacio */
+/* =========================================
+   NAV FULLSCREEN (MÓVIL + iPAD ≤ 991.98px)
+   ========================================= */
+@media (max-width: 991.98px){
+
+  /* el contenedor colapsable pasa a fullscreen */
+  #navbarMenu{
+    position: fixed !important;
+    inset: 0 !important;                /* top:0 right:0 bottom:0 left:0 */
+    width: 100vw !important;
+    height: 100vh !important;
+    background: #000 !important;
+    z-index: 9998 !important;
+    padding: 6.5rem 1.5rem 2rem !important; /* espacio para navbar */
+    overflow-y: auto !important;
   }
 
-  .nav-link {
-    font-size: 0.85rem; 
-    padding: 0.2rem 0.3rem;
+  /* cerrado = oculto */
+  #navbarMenu.collapse:not(.show){
+    display: none !important;
   }
 
-  .separator {
-    padding: 0 0.2rem;
+  /* links en columna */
+  .navbar-nav{
+    width: 100% !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 1rem !important;
   }
 
-  .navbar-brand {
-    font-size: 0.8rem;
-    letter-spacing: 0.9em;
-  }
-}
-
-/* Móviles pequeños (≤ 575.98px) */
-@media (max-width: 575.98px) {
-  .navbar-nav {
-    flex-direction: column;  /* ahora sí que se apilen para móviles muy pequeños */
-    align-items: flex-start; /* links alineados a la izquierda */
+  .nav-link{
+    font-size: 1.6rem !important;
+    padding: 0.5rem 0 !important;
+    color: #fff !important;
   }
 
-  .nav-link {
-    font-size: 0.75rem;
-    padding: 0.25rem 0;
+  .separator{
+    display: none !important;
   }
 
-  .separator {
-    display: none; /* opcional: quitar separadores en móvil */
+  /* que el botón hamburguesa quede por encima del fullscreen */
+  .navbar-toggler{
+    position: relative !important;
+    z-index: 9999 !important;
   }
 
-  .navbar-brand {
-    font-size: 0.75rem;
-    letter-spacing: 0.8em;
-  }
-  
-  /* Ajuste del contenedor para que el logo y hamburguesa no se rompan */
-  .container-fluid {
-    flex-wrap: nowrap;
-    justify-content: space-between;
+  /* (opcional) ajusta logo para que no se rompa */
+  .navbar-brand{
+    font-size: 1.3rem !important;
+    letter-spacing: 0.9em !important;
   }
 }
