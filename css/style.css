@@ -1645,8 +1645,8 @@ table td {
   }
 
   .nav-link{
-    font-size: 1.6rem !important;
-    padding: 0.5rem 0 !important;
+    font-size: 0.6rem;
+    padding: 0.25rem 0 !important;
     letter-spacing: 0.05em;
     color: #fff !important;
   }
@@ -1660,6 +1660,8 @@ table td {
     position: relative;
     z-index: 9999;
   }
+  .container-fluid { flex-wrap: nowrap; justify-content: space-between; }
+ 
 }
 
 /* =========================================
