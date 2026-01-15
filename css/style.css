@@ -1663,6 +1663,36 @@ table td {
   .container-fluid { flex-wrap: nowrap; justify-content: space-between; }
  
 }
+@media (max-width: 768px) {
+  .nav-link { 
+  font-size: 0.85rem; 
+  padding: 0.3rem; 
+
+} 
+.separator {
+   padding: 0 0.3rem;
+  } 
+
+  }
+/* Móviles grandes (≤ 768px) */
+ @media (max-width: 768px) { 
+  .navbar-nav { 
+    flex-wrap: nowrap;
+     /* mantiene links en línea si hay espacio */ 
+    
+    } 
+  .nav-link {
+     font-size: 0.85rem; 
+     padding: 0.2rem 0.3rem;
+   } 
+   .separator {
+     padding: 0 0.2rem; 
+    } 
+    .navbar-brand 
+    { 
+      font-size: 0.8rem; 
+      letter-spacing: 0.9em;
+     } }
 
 /* =========================================
    NAV FULLSCREEN (MÓVIL + iPAD ≤ 991.98px)
@@ -1712,7 +1742,7 @@ table td {
 
   /* (opcional) ajusta logo para que no se rompa */
   .navbar-brand{
-    font-size: 1.3rem !important;
+    font-size: 1.rem !important;
     letter-spacing: 0.9em !important;
   }
 }
